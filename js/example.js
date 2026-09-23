@@ -3,6 +3,24 @@ $(function() {
   // TODO: Create a list of JS Object each representing a game. 
   // Use the data contained in the <ul> to build this list of game titles.
 
+  const games = [
+    {
+    title: "The Legend of Zelda: Breath of the Wild"
+    },
+    {
+    title: "God of War Ragnarök"
+    },
+    {
+    title: "Halo Infinite"
+    },
+    {
+    title: "Minecraft"
+    },
+    {
+    title: "Super Mario Odyssey"
+    },
+]
+
 
   var gameList, newItemForm, newItemButton;
   var item = '';                                 
@@ -10,12 +28,28 @@ $(function() {
   
   gameList = $('ul');                               
   newItemForm = $('#newItemForm');              
-  newItemButton = $('#newItemButton');          
+  newItemButton = $('#newItemButton');
+  
+
 
   // TODO:  Render game titles as list items inside the <ul>. 
   // To do so, create a function that loops through each object in the game list, 
   // create a new node "list item" holding the game title and 
   // inject the new node inside the <ul>.
+
+  function loadGame(){
+
+    games.forEach( game => {
+      const listItem = $('<li>');
+      listItem.html(`${game.title}`);
+      gameList.append(listItem);
+    })
+
+    // for (var i = 0; i < games.length; i++) {
+    //   gameList.append(`<li>${games[i].title}</li>`);
+    // }
+  }
+  loadGame();
 
 
 
